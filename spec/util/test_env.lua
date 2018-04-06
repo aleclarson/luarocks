@@ -588,10 +588,10 @@ end
 -- `false` if installation failed.
 function test_env.need_rock(rock)
    print("Check if " .. rock .. " is installed")
-   if test_env.run.luarocks_noprint_nocov(test_env.quiet("show " .. rock)) then
+   if test_env.run.luarocks_nocov("show " .. rock) then
       return true
    else
-      return test_env.run.luarocks_noprint_nocov(test_env.quiet("install " .. rock))
+      return test_env.run.luarocks_nocov("install " .. rock)
    end
 end
 
